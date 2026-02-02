@@ -9,7 +9,8 @@ public class Report{
     public static String generateReport() {
         
         //Read and parse input data with function
-        String hw2 = "C:\\Users\\acts5\\OneDrive\\ECS140a\\hw2.txt";
+        //String hw2 = "C:\\Users\\acts5\\OneDrive\\ECS140a\\hw2.txt";
+        String hw2 = "hw2.txt";
         
         ParseText parser = new ParseText();
         Student[] students = parser.parse(hw2);
@@ -29,10 +30,11 @@ public class Report{
         
         //generate report 1 
         //1 line per student, showing the fees
+        System.out.println("Summary of each student's fees assessed: \n");
         for(Student s : students) {
-            System.out.println(s.firstName + " " + s.lastName + ": $" + s.fee);
+           System.out.println(s.firstName + " " + s.lastName + " has $" + String.format("%,d", s.fee) + " fees assessed ");
         }
-
+        System.out.println("\n\n");
 
         //TODO generate report 2
         int degreeNoAidTotal = 0;
@@ -54,12 +56,12 @@ public class Report{
 
         int totalFees = degreeNoAidTotal + degreeWithAidTotal + certificateTotal + seniorTotal;
 
-        System.out.println("\nSummary of student fees assessed:");
-        System.out.println("Degree-seeking students without financial assistance: $" + degreeNoAidTotal);
-        System.out.println("Degree-seeking students with financial assistance: $" + degreeWithAidTotal);
-        System.out.println("Certificate students: $" + certificateTotal);
-        System.out.println("Senior citizens: $" + seniorTotal);
-        System.out.println("Total fees assessed: $" + totalFees);
+        System.out.println("Summary of all student fees assessed: \n");
+        System.out.println("Degree-seeking students without financial assistance: $" + String.format("%,d", degreeNoAidTotal));
+        System.out.println("Degree-seeking students with financial assistance: $" + String.format("%,d", degreeWithAidTotal));
+        System.out.println("Certificate students: $" + String.format("%,d", certificateTotal));
+        System.out.println("Senior citizens: $" + String.format("%,d", seniorTotal));
+        System.out.println("\nTotal fees assessed: $" + String.format("%,d", totalFees));
 
 
         //----------DONT EDIT BELOW THIS LINE-----------

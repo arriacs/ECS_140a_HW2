@@ -15,17 +15,20 @@ public class AidStudent extends Student {
     public static final int creditFee = 275;
 
     //Fee calculation for financial aid students
-    int CalculateAid(int creditHours){
-
-        int regularFee = (creditHours * 275) + generalFee;
-
-        int aidFee = regularFee - aidAmount;
-
-        if (creditHours > maxCredits)
-            return maxFee;
+    int CalculateAid(int creditHours) {
         
-        else
-            return aidFee;
+        int regularFee;
+        if (creditHours > maxCredits) {
+            regularFee = maxFee;           // maximum capped fee for 12+ credits
+        } else {
+            regularFee = (creditHours * creditFee) + generalFee;
+        }
+
+        int feeAfterAid = regularFee - aidAmount;
+
+        if (feeAfterAid < 0) return 0;
+
+        return feeAfterAid;
     }
 
 

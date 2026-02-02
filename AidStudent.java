@@ -1,8 +1,8 @@
 public class AidStudent extends Student {
         
-    char major;
+    String major;
 
-    char academicStanding;
+    String academicStanding;
 
     int aidAmount;
 
@@ -13,6 +13,21 @@ public class AidStudent extends Student {
     public static final int generalFee = 150;
 
     public static final int creditFee = 275;
+
+    //Fee calculation for financial aid students
+    int CalculateAid(int creditHours){
+
+        int regularFee = (creditHours * 275) + generalFee;
+
+        int aidFee = regularFee - aidAmount;
+
+        if (creditHours > maxCredits)
+            return maxFee;
+        
+        else
+            return aidFee;
+    }
+
 
 
 }

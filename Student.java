@@ -10,14 +10,16 @@ public class Student {
 
     public static final char[] academicStanding = {'G', 'W', 'P'};
 
-    int id;
+    String id;
 
     String firstName;
 
     String lastName;
 
-    int age;
+    String age;
 
     int creditHours;
+
+    int fee;
     
 }

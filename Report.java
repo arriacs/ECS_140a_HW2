@@ -1,11 +1,6 @@
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
+
 //----------DONT EDIT ABOVE THIS LINE-----------
 //packages go here..
 
@@ -13,20 +8,12 @@ import java.io.FileNotFoundException;
 public class Report{
     public static String generateReport() {
         
-        //Read and parse input data using delimiter ";"
-        String delim = ";";
-
-        try{
-            Scanner scanner = new Scanner(new File("hw2.txt"));
-            while(scanner.hasNextLine()) {
-                //save line to a student variable
-                String student = scanner.nextLine();
-                
-            }
-        }
+        //Read and parse input data with function
+        String hw2 = "C:\\Users\\acts5\\OneDrive\\ECS140a\\hw2.txt";
         
-
-
+        ParseText parser = new ParseText();
+        Student[] students = parser.parse(hw2);
+        
         //TODO call printData()
             //your code goes here..
 
@@ -40,12 +27,39 @@ public class Report{
         //----------DONT EDIT ABOVE THIS LINE-----------
         
         
-        //TODO generate report 1 
-            //your code goes here..
+        //generate report 1 
+        //1 line per student, showing the fees
+        for(Student s : students) {
+            System.out.println(s.firstName + " " + s.lastName + ": $" + s.fee);
+        }
 
 
         //TODO generate report 2
-            //your code goes here..
+        int degreeNoAidTotal = 0;
+        int degreeWithAidTotal = 0;
+        int certificateTotal = 0;
+        int seniorTotal = 0;
+
+        for (Student s : students) {
+            if (s instanceof NoAidStudent) {
+                degreeNoAidTotal += s.fee;
+            } else if (s instanceof AidStudent) {
+                degreeWithAidTotal += s.fee;
+            } else if (s instanceof CertificateStudent) {
+                certificateTotal += s.fee;
+            } else if (s instanceof SeniorStudent) {
+                seniorTotal += s.fee;
+            }
+        }
+
+        int totalFees = degreeNoAidTotal + degreeWithAidTotal + certificateTotal + seniorTotal;
+
+        System.out.println("\nSummary of student fees assessed:");
+        System.out.println("Degree-seeking students without financial assistance: $" + degreeNoAidTotal);
+        System.out.println("Degree-seeking students with financial assistance: $" + degreeWithAidTotal);
+        System.out.println("Certificate students: $" + certificateTotal);
+        System.out.println("Senior citizens: $" + seniorTotal);
+        System.out.println("Total fees assessed: $" + totalFees);
 
 
         //----------DONT EDIT BELOW THIS LINE-----------

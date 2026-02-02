@@ -6,4 +6,11 @@ public class CertificateStudent extends Student {
 
     public static final int creditFee = 300;
 
+    int CalculateAid(int creditHours){
+
+        int regularFee = (creditHours * creditFee) + fixedFee;
+
+        return regularFee;
+    }
+
 }

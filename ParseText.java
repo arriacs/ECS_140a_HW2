@@ -89,15 +89,12 @@ public class ParseText {
                 String[] studentInfo = student.split(delim);
 
                 //add new class to student array
-                //students[i] = studentType(studentInfo);
-
-                //i++;
                 Student s = studentType(studentInfo);
                 if (s != null) {
                     students[i] = s;
                     i++;
                 } else {
-                    System.out.println("Skipped malformed line: " + String.join(";", studentInfo));
+                    System.out.println("incorrect input:" + String.join(";", studentInfo));
                 }
               
             }

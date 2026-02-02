@@ -9,7 +9,6 @@ public class Report{
     public static String generateReport() {
         
         //Read and parse input data with function
-        //String hw2 = "C:\\Users\\acts5\\OneDrive\\ECS140a\\hw2.txt";
         String hw2 = "hw2.txt";
         
         ParseText parser = new ParseText();

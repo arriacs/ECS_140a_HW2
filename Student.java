@@ -1,4 +1,3 @@
-//this file contains the general "Student" class, and it's implementation for the 4 cases of students.
 
 public abstract class Student {
 

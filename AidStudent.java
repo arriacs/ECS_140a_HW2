@@ -19,7 +19,7 @@ public class AidStudent extends Student {
         
         int regularFee;
         if (creditHours > maxCredits) {
-            regularFee = maxFee;           // maximum capped fee for 12+ credits
+            regularFee = maxFee;          
         } else {
             regularFee = (creditHours * creditFee) + generalFee;
         }

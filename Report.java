@@ -16,7 +16,10 @@ public class Report{
         Student[] students = parser.parse(hw2);
         
         //TODO call printData()
-            //your code goes here..
+        for (Student s : students) {
+            s.printData(); 
+            System.out.println(); 
+}
 
 
         //----------DONT EDIT BELOW THIS LINE-----------

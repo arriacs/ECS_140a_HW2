@@ -65,6 +65,7 @@ public class ParseText {
             certificate.lastName = studentInfo[2];
             certificate.age = studentInfo[3];
             certificate.creditHours = Integer.parseInt(studentInfo[4]);
+            certificate.certificate = studentInfo[7];
             certificate.fee = certificate.CalculateAid(certificate.creditHours);
             return certificate;
         }

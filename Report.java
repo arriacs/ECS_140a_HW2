@@ -3,14 +3,28 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 //----------DONT EDIT ABOVE THIS LINE-----------
 //packages go here..
 
 
 public class Report{
     public static String generateReport() {
-        //TODO process input data
-            //your code goes here..
+        
+        //Read and parse input data using delimiter ";"
+        String delim = ";";
+
+        try{
+            Scanner scanner = new Scanner(new File("hw2.txt"));
+            while(scanner.hasNextLine()) {
+                //save line to a student variable
+                String student = scanner.nextLine();
+                
+            }
+        }
+        
 
 
         //TODO call printData()
